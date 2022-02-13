@@ -1,6 +1,6 @@
-from .client import SSOConnectorClient, InvalidRequest
+from .client import SSOConnectorClient, InvalidSSORequest
 
 __all__ = [
   SSOConnectorClient,
-  InvalidRequest
+  InvalidSSORequest
 ]

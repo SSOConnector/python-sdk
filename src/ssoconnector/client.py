@@ -1,7 +1,7 @@
 
 
 import jwt
-from .exception import InvalidRequest
+from .exception import InvalidSSORequest
 
 class SSOConnectorClient:
 
@@ -15,4 +15,4 @@ class SSOConnectorClient:
               self.__client_secret, 
               algorithms=["HS256"])
     except:
-      raise InvalidRequest("Invalid Token")
+      raise InvalidSSORequest("Invalid Token")

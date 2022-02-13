@@ -13,7 +13,7 @@ pip install ssoconnector
 This is sample flask example
 
 ```python
-from ssoconnector import SSOConnectorClient, InvalidRequest
+from ssoconnector import SSOConnectorClient, InvalidSSORequest
 from flask import Flask, request
 
 @app.route("/sso/login/callback")
@@ -26,7 +26,7 @@ def callback():
     response = client.sso_response(token)
     # login user to your app
     login_user_to_app(response)
-  except InvalidRequest:
+  except InvalidSSORequest:
     # error handling
     return invalid_sso_request()
 
