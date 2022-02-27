@@ -1,6 +1,7 @@
 import base64
 import jwt
 import requests
+import json
 
 from .constant import INVALID_SESSION_ID, MALFORMED_TOKEN, SESSION_ID_MISSING
 from .exception import InvalidSSORequest
@@ -29,14 +30,14 @@ class SSOConnectorClient:
 
     def __consume_session_id(self, session_id):
         body = {
-            "token": session_id
+            "session_id": session_id
         }
         headers = {
             "X-Api-Key": self.__get_api_key()
         }
-        url = f"{self.__endpoint}/sso/session/consume"
+        url = f"{self.__endpoint}/v1/sso/session/consume"
 
-        api_response = requests.post(url, body=body, headers=headers)
+        api_response = requests.post(url, data=json.dumps(body), headers=headers)
 
         if api_response.status_code != 200:
             raise InvalidSSORequest(INVALID_SESSION_ID)
