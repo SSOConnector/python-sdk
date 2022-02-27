@@ -1,6 +1,6 @@
 # ssoconnector-python-sdk
 
-Add SAML SSO login for python applications
+SSOConnector official python-sdk for SAML SSO Implementation in Python.
 
 ## Installation
 
